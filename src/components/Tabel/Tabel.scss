@@ -1,0 +1,40 @@
+.section-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    height: 60px;
+    width: 100%;
+    box-shadow: 2px 4px 4px 3px rgba(0, 0, 0, .3);
+    margin-bottom: 1%;
+    &__name {
+        display: flex;
+        align-items: center;
+        & img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: blueviolet;
+            margin: 0 5px;
+        }
+    }
+    &__age {
+        display: flex;
+        align-items: center;
+        justify-content: center;   
+    }
+    &__phone {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;   
+        padding: 0 5px;
+        & svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+}

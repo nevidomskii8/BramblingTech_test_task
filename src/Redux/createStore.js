@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { orderLocalStorage } from './middlewares/orderLocalStorage';
 import rootReducer from './rootReducer';
 

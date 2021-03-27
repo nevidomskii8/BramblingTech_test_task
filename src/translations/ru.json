@@ -1,0 +1,11 @@
+{
+    "reactlocalization.app.header": "Локализация в приложении Создать React",
+    "reactlocalization.app.footer": "Люблю тебя 3000",
+    "reactlocalization.app.id": "По id",
+    "reactlocalization.app.age": "Возрост",
+    "reactlocalization.app.name": "Имя",
+    "reactlocalization.app.ascending": "По возростанию",
+    "reactlocalization.app.discending": "По убыванию",
+    "reactlocalization.app.tabel": "Таблица",
+    "reactlocalization.app.preview": "Превью"
+  }

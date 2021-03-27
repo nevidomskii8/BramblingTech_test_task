@@ -22,4 +22,4 @@ const stateReducer = createReducer(initialState, {
     },
 });
 
-export default stateReducer
+export default stateReducer;

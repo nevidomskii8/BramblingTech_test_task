@@ -1,13 +1,12 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { ReactComponent as StatLot } from '../../assets/svg/star-lot.svg'
-import { getStateData } from '../../Redux/selector/stateSelector'
-import './Preview.scss'
-const IMG = '../../assets/svg/images/'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { ReactComponent as StatLot } from '../../assets/svg/star-lot.svg';
+import { getStateData } from '../../Redux/selector/stateSelector';
+import './Preview.scss';
 
 export const Preview = () => {
 
-    const stateData = useSelector(getStateData)
+    const stateData = useSelector(getStateData);
 
     return (
         <div className='card-container'>
@@ -37,4 +36,4 @@ export const Preview = () => {
             }
         </div>
     )
-}
+};

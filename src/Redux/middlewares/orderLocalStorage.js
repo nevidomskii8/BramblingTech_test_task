@@ -1,4 +1,4 @@
-import { setStorage, removeStorage } from '../action/storageAction'
+import { setStorage, removeStorage } from '../action/storageAction';
 
 export const orderLocalStorage = store => next => action => {
 

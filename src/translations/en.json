@@ -1,0 +1,11 @@
+{
+    "reactlocalization.app.header": "Localization in Create React App",
+    "reactlocalization.app.footer": "Love you 3000",
+    "reactlocalization.app.id": "Id",
+    "reactlocalization.app.age": "Age",
+    "reactlocalization.app.name": "Name",
+    "reactlocalization.app.ascending": "Ascending",
+    "reactlocalization.app.discending": "Discending",
+    "reactlocalization.app.tabel": "Tabel",
+    "reactlocalization.app.preview": "Preview"
+}

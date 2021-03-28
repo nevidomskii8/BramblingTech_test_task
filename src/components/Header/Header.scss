@@ -1,17 +1,93 @@
-.header{
+.header {
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: auto;
 
-    &__params--active {
-            background-color: rgba($color: #000000, $alpha: .3);
+    &__params {
+        position: relative;
+        &::before {
+            z-index: 100;
+            content: "";
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            bottom: 0px;
+            height: 3px;
+            background-color: #f7810d;
+            transform: scaleX(0);
+            transition: transform 0.25s ease;
         }
-    &__cending--active {
-            background-color: rgba($color: #000000, $alpha: .3);
+        &--active {
+            position: relative;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+            &::before {
+                content: "";
+                position: absolute;
+                left: 5px;
+                right: 5px;
+                bottom: 0px;
+                height: 3px;
+                background-color: #f7810d;
+                transform: scaleX(1);
+                transition: transform 0.25s ease;
+            }
         }
-    
-    
+        &:hover {
+            background: none;
+            &::before {
+                background: none;
+                transform: scaleX(1);
+                background-color: #f7810d;
+            }
+        }
+    }
+
+    &__cending {
+        position: relative;
+        &::before {
+            z-index: 100;
+            content: "";
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            bottom: 0px;
+            height: 3px;
+            background-color: #f7810d;
+            transform: scaleX(0);
+            transition: transform 0.25s ease;
+        }
+        &--active {
+            position: relative;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+            &::before {
+                content: "";
+                position: absolute;
+                left: 5px;
+                right: 5px;
+                bottom: 0px;
+                height: 3px;
+                background-color: #f7810d;
+                transform: scaleX(1);
+                transition: transform 0.25s ease;
+            }
+        }
+        &:hover {
+            background: none;
+            &::before {
+                background: none;
+                transform: scaleX(1);
+                background-color: #f7810d;
+            }
+        }
+    }
+
+    &__input-filter {
+        position: absolute;
+        top: 80px;
+        left: 500px;
+    }
+
     &__filter {
         display: flex;
         flex-direction: column;
@@ -28,23 +104,22 @@
                 border: none;
                 display: flex;
                 align-items: center;
-                justify-content: center;    
+                justify-content: center;
                 border-right: solid 1px #000;
                 cursor: pointer;
-                &:hover{
-                    background-color: rgba($color: #000000, $alpha: .2);
+                &:hover {
+                    background-color: rgba($color: #000000, $alpha: 0.2);
                 }
                 &:active {
-                    background-color: rgba($color: #000000, $alpha: .5);
+                    background-color: rgba($color: #000000, $alpha: 0.5);
                 }
-            } 
+            }
         }
-       
-        
+
         &--cending {
             border: solid 1px #000;
             display: grid;
-            grid-template-columns: 50% 50% ;   
+            grid-template-columns: 50% 50%;
             & :nth-child(2) {
                 border-right: none;
             }
@@ -52,42 +127,47 @@
                 border: none;
                 display: flex;
                 align-items: center;
-                justify-content: center;    
-                border-right: solid 1px #000;  
+                justify-content: center;
+                border-right: solid 1px #000;
                 cursor: pointer;
-                &:hover{
-                    background-color: rgba($color: #000000, $alpha: .2);
+                &:hover {
+                    background-color: rgba($color: #000000, $alpha: 0.2);
                 }
                 &:active {
-                    background-color: rgba($color: #000000, $alpha: .5);
+                    background-color: rgba($color: #000000, $alpha: 0.5);
                 }
                 &--active {
-                    background-color: rgba($color: #000000, $alpha: .1);
+                    background-color: rgba($color: #000000, $alpha: 0.1);
                 }
-            } 
+            }
         }
     }
-    
+
     &__nav {
         display: flex;
         width: 35%;
         border: 1px solid #000;
         & div {
+            position: relative;
             width: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             border: none;
-            border-right: solid 1px #000;  
+            border-right: solid 1px #000;
             cursor: pointer;
-            &:hover{
-                background-color: rgba($color: #000000, $alpha: .2);
+            &:hover {
+                transition: transform 0.45s ease;   
+                background-color: rgba($color: #000000, $alpha: 0.2);
+                & center {
+                    transform: scale(1.2)
+                };
             }
             &:active {
-                background-color: rgba($color: #000000, $alpha: .5);
+                background-color: rgba($color: #000000, $alpha: 0.5);
             }
-        } 
-        
+        }
+
         & :nth-child(2) {
             border-right: none;
         }
@@ -95,7 +175,47 @@
     &__link {
         &--active {
             border: none;
-            background-color: rgba($color: #000000, $alpha: .3);
+            background-color: rgba($color: #000000, $alpha: 0.3);
+        }
+    }
+}
+@media (max-width: 1024px) {
+    .header {
+        &__input-filter {
+            position: absolute;
+            left: 400px;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .header {
+        &__input-filter {
+            position: absolute;
+            left: 300px;
+        }
+    }
+}
+@media (max-width: 550px) {
+    .header {
+        font-size: x-small;
+    }
+}
+
+@media (max-width: 425px) {
+    .header {
+        &__input-filter {
+            position: absolute;
+            top: 60px;
+            left: 150px;
+        }
+    }
+}
+@media (max-width: 425px) {
+    .header {
+        &__input-filter {
+            position: absolute;
+            top: 50px;
+            left: 100px;
         }
     }
 }

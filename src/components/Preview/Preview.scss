@@ -1,3 +1,24 @@
+.visblie-wraper {
+    transition: transform 0.25s ease;
+    // transform: translateX(-2000px);
+    &__odd {
+        &--visible {
+            transform: translateX(-2000px);
+        }
+        &--unvisible {
+            transform: translateX(0px);
+        }
+    }
+    &__even {
+        &--visible {
+            transform: translateX(-2000px);
+        }
+        &--unvisible {
+            transform: translateX(0px);
+        }
+    }
+}
+
 .card-container {
     width: 100%;
     display: flex;
@@ -10,14 +31,20 @@
 }
 
 .card {
+    position: relative;
     display: flex;
     width: 49%;
     height: 250px;
     border: solid 1px #000;
     box-shadow: 2px 3px 4px 3px rgba(0, 0, 0, 0.3);
 
+    &__delete {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+    }
+
     &--video {
-        z-index: 1;
         display: flex;
         width: 100%;
         height: auto;
@@ -59,10 +86,78 @@
             justify-content: space-between;
             height: 30%;
         }
-
     }
 
     --video {
         width: 100%;
+    }
+}
+
+@media (max-width: 950px) {
+    .card {
+        &__video {
+            width: 440px;
+            height: 240px;
+        }
+    }
+}
+@media (max-width: 900px) {
+    .card {
+        &__video {
+            width: 420px;
+            height: 220px;
+        }
+    }
+}
+@media (max-width: 850px) {
+    .card {
+        &__video {
+            width: 400px;
+            height: 200px;
+        }
+    }
+}
+@media (max-width: 750px) {
+    .card {
+        &__video {
+            width: 380px;
+            height: 190px;
+        }
+    }
+}
+@media (max-width: 425px) {
+    .card {
+        width: 100%;
+        &--video {
+            flex-direction: column;
+        }
+        &__video {
+            width: 380px;
+            height: 220px;
+        }
+    }
+}
+@media (max-width: 375px) {
+    .card {
+        width: 100%;
+        &--video {
+            flex-direction: column;
+        }
+        &__video {
+            width: 335px;
+            height: 190px;
+        }
+    }
+}
+@media (max-width: 320px) {
+    .card {
+        width: 100%;
+        &--video {
+            flex-direction: column;
+        }
+        &__video {
+            width: 285px;
+            height: 180px;
+        }
     }
 }

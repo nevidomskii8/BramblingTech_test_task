@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { setSortParams, setSortCending, setStorage, } from "../action/storageAction";
+import { setStorage, } from "../action/storageAction";
 
 let initialState;
 

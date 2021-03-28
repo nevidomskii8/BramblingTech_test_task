@@ -5,12 +5,18 @@
 }
 
 .section {
+    position: relative;
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
     height: 60px;
     width: 100%;
     box-shadow: 2px 4px 4px 3px rgba(0, 0, 0, .3);
     margin-bottom: 1%;
+    
+    &__delete {
+        position: absolute;
+        left: -10px;
+    }
     &__name {
         display: flex;
         align-items: center;
@@ -38,3 +44,18 @@
         }
     }
 }
+@media (max-width: 550px) {
+    .section {
+        font-size: small;
+        grid-template-columns: 45.99% 14% 39.99%;
+    }
+}
+@media (max-width: 320px) {
+    .section {
+        grid-template-columns: 49.99%  49.99%;
+        &__age {
+            display: none;
+        }
+    }
+    
+  }

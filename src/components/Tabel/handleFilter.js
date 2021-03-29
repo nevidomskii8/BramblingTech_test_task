@@ -1,7 +1,7 @@
 export const nameDiscending = (a, b) => {
     const bandA = a.name.toUpperCase();
     const bandB = b.name.toUpperCase();
-    
+
     let comparison = 0;
     if (bandA > bandB) {
         comparison = 1;
@@ -14,7 +14,7 @@ export const nameDiscending = (a, b) => {
 export const nameAscending = (a, b) => {
     const bandA = a.name.toUpperCase();
     const bandB = b.name.toUpperCase();
-    
+
     let comparison = 0;
     if (bandA < bandB) {
         comparison = 1;
@@ -23,7 +23,8 @@ export const nameAscending = (a, b) => {
     }
     return comparison;
 }
-export const idDiscending = (a, b) => {
+
+const idDiscending = (a, b) => {
     const bandA = a.id;
     const bandB = b.id;
 
@@ -36,7 +37,7 @@ export const idDiscending = (a, b) => {
     return comparison;
 }
 
-export const idAscending = (a, b) => {
+const idAscending = (a, b) => {
     const bandA = a.id;
     const bandB = b.id;
 
@@ -73,4 +74,29 @@ export const ageAscending = (a, b) => {
         comparison = -1;
     }
     return comparison;
+}
+
+export const handleFilter = (param, state) => {
+    const { sortParams, sort } = param
+    let filterteredState = [...state]
+    switch (sortParams) {
+        case 'id':
+            sort === 'discending'
+                ? filterteredState = filterteredState.sort(idAscending)
+                : filterteredState = filterteredState.sort(idDiscending)
+
+            break;
+        case 'name':
+            sort === 'discending'
+                ? filterteredState = filterteredState.sort(nameAscending)
+                : filterteredState = filterteredState.sort(nameDiscending)
+            break;
+        case 'age':
+            sort === 'discending'
+                ? filterteredState = filterteredState.sort(ageAscending)
+                : filterteredState = filterteredState.sort(ageDiscending)
+            break;
+        default: return filterteredState
+    }
+    return filterteredState
 }

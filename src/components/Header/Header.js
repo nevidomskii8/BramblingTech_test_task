@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router';
+import { useHistory, useParams, useLocation } from 'react-router';
+// import { as Router} from 'react-router-dom'
 import messages from "../../appMessages";
 import { sortByAge, sortById, sortByName } from '../../Redux/action/stateAction';
 import { setStorage } from '../../Redux/action/storageAction';
 import { getStateFilter } from '../../Redux/selector/storageSelector';
+import SearchInput from '../SearchInput/SearchInput';
 import './Header.scss';
+
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 
 export const Header = () => {
@@ -14,87 +21,75 @@ export const Header = () => {
     const { push } = useHistory();
     const stateStorageFilter = useSelector(getStateFilter);
     const dispatch = useDispatch();
-    const [filter, setFilter] = useState({ params: null, cending: null, filterByName: '' });
-
-    const handleSort = (sortBy, cending) => {
-        switch (sortBy) {
-            case 'id':
-                dispatch(sortById(cending));
-                break;
-            case 'name':
-                dispatch(sortByName(cending));
-                break;
-            case 'age':
-                dispatch(sortByAge(cending));
-                break;
-        }
-    }
+    const [filter, setFilter] = useState({ 
+        filterByParams: null,
+         sort: null, 
+         filterByName: '' 
+    });
 
     const defineState = () => {
-        const {params, cending} = stateStorageFilter 
+        console.log(stateStorageFilter)
         setFilter(stateStorageFilter)
-        handleSort({params, cending})
     }
 
     useEffect(() => {
-        stateStorageFilter.cending
+        console.log(stateStorageFilter)
+        stateStorageFilter.sort
             ? defineState()
             : setFilter({
-                params: 'id',
-                cending: 'ascending',
+                filterByParams: 'id',
+                sort: 'ascending',
+                filterByName: '',
             })
     }, []);
 
     useEffect(() => {
-        const { params, cending } = filter
         dispatch(setStorage(filter))
-        handleSort(params, cending)
     }, [filter])
 
-    const handleInput = (e) => {
-        const {value} = e.target
-        setFilter({...filter, filterByName: value})
+    const handleInput = (value) => {
+        setFilter({ ...filter, filterByName: value })
     }
 
     return (
         <header className='header'>
-            <input
-                className="header__input-filter"
-                onChange={e => handleInput(e)}
-                type="text"
-                placeholder=' filter by name'
+            <SearchInput
+                handleInput={handleInput}
+                filterName={filter.filterByName}
+                sort={filter.sort}
+                filterByParams={filter.filterByParams}
             />
             <section className='header__filter'>
                 <div className='header__filter--params'>
                     <div
-                        onClick={() => setFilter({ ...filter, params: 'id' })}
-                        className={`header__params${filter.params === 'id' ? '--active' : ''}`}
+                        onClick={() => setFilter({ ...filter, filterByParams: 'id' })}
+                        className={`header__params${filter.filterByParams === 'id' ? '--active' : ''}`}
                     >
                         <center> <FormattedMessage {...messages.projectFilterId} /></ center>
                     </ div>
                     <div
-                        onClick={() => setFilter({ ...filter, params: 'name' })}
-                        className={`header__params${filter.params === 'name' ? '--active' : ''}`}
+                        onClick={() => setFilter({ ...filter, filterByParams: 'name' })}
+                        className={`header__params${filter.filterByParams === 'name' ? '--active' : ''}`}
                     >
                         <center> <FormattedMessage {...messages.projectFilterName} /> </ center>
                     </ div>
                     <div
-                        onClick={() => setFilter({ ...filter, params: 'age' })}
-                        className={`header__params${filter.params === 'age' ? '--active' : ''}`}
+                        onClick={() => setFilter({ ...filter, filterByParams: 'age' })}
+                        className={`header__params${filter.filterByParams === 'age' ? '--active' : ''}`}
                     >
                         <center> <FormattedMessage {...messages.projectFilterAge} /> </ center>
                     </ div>
                 </ div>
                 <div className='header__filter--cending'>
                     <div
-                        className={`header__cending${filter.cending === 'ascending' ? '--active' : ''}`}
-                        onClick={() => setFilter({ ...filter, cending: 'ascending' })}
+                        className={`header__cending${filter.sort === 'ascending' ? '--active' : ''}`}
+                        onClick={() => setFilter({ ...filter, sort: 'ascending' })}
                     >
                         <center> <FormattedMessage {...messages.projectFilterAscending} /> </ center>
                     </ div>
                     <div
-                        onClick={() => setFilter({ ...filter, cending: 'discending' })}
-                        className={`header__cending${filter.cending === 'discending' ? '--active' : ''}`}
+                        onClick={() => setFilter({ ...filter, sort: 'discending' })}
+                        className={`header__cending${filter.sort === 'discending' ? '--active' : ''}`}
                     >
                         <center> <FormattedMessage {...messages.projectFilterDiscending} /> </ center>
                     </ div>

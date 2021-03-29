@@ -5,17 +5,22 @@
     transition: transform 0.25s ease;
     // transform: translateX(-2000px);
     &__odd {
+        
         &--visible {
             transform: translateX(-2000px);
         }
+        
         &--unvisible {
             transform: translateX(0px);
         }
     }
+
     &__even {
+        
         &--visible {
             transform: translateX(-2000px);
         }
+
         &--unvisible {
             transform: translateX(0px);
         }
@@ -28,6 +33,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     overflow-y: auto;
+    
     & section {
         margin-bottom: 1%;
     }
@@ -42,6 +48,7 @@
     box-shadow: 2px 3px 4px 3px rgba(0, 0, 0, 0.3);
     background-color: $background;
     color: $color;
+    
     &__delete {
         position: absolute;
         width: 20px;
@@ -65,15 +72,18 @@
         width: 100%;
         justify-content: space-around;
         padding: 20px;
+        
         &--head {
             display: flex;
             width: 100%;
             align-items: center;
+
             & svg {
                 width: 15px;
                 height: 15px;
                 margin-left: auto;
             }
+
             & img {
                 width: 30px;
                 height: 30px;
@@ -81,11 +91,13 @@
                 background-color: blueviolet;
                 margin-right: 20px;
             }
+
             & video {
                 width: 240px;
                 height: 180px;
             }
         }
+        
         &--medium {
             display: flex;
             flex-direction: column;
@@ -100,6 +112,7 @@
 }
 
 @media (max-width: 950px) {
+
     .card {
         &__video {
             width: 440px;
@@ -107,7 +120,9 @@
         }
     }
 }
+
 @media (max-width: 900px) {
+  
     .card {
         &__video {
             width: 420px;
@@ -115,7 +130,9 @@
         }
     }
 }
+
 @media (max-width: 850px) {
+
     .card {
         &__video {
             width: 400px;
@@ -123,7 +140,9 @@
         }
     }
 }
+
 @media (max-width: 750px) {
+
     .card {
         &__video {
             width: 380px;
@@ -131,36 +150,47 @@
         }
     }
 }
+
 @media (max-width: 425px) {
+
     .card {
         width: 100%;
+        
         &--video {
             flex-direction: column;
         }
+
         &__video {
             width: 380px;
             height: 220px;
         }
     }
 }
+
 @media (max-width: 375px) {
+
     .card {
         width: 100%;
+
         &--video {
             flex-direction: column;
         }
+        
         &__video {
             width: 335px;
             height: 190px;
         }
     }
 }
+
 @media (max-width: 320px) {
     .card {
         width: 100%;
+
         &--video {
             flex-direction: column;
         }
+
         &__video {
             width: 285px;
             height: 180px;

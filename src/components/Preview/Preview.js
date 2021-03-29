@@ -29,7 +29,7 @@ export const Preview = () => {
         filterByName
             ? setState(stateData.filter(elem => testRegex.test(elem.name.toUpperCase())))
             : setState(stateData);
-    }, [state]);
+    }, [stateData]);
 
 
     return (

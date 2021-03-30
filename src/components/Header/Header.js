@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams, useLocation } from 'react-router';
-// import { as Router} from 'react-router-dom'
+import { useHistory, useParams} from 'react-router';
 import messages from "../../appMessages";
-import { sortByAge, sortById, sortByName } from '../../Redux/action/stateAction';
 import { setStorage } from '../../Redux/action/storageAction';
 import { getStateFilter } from '../../Redux/selector/storageSelector';
 import SearchInput from '../SearchInput/SearchInput';
 import './Header.scss';
-
-
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-}
 
 
 export const Header = () => {
@@ -28,7 +21,6 @@ export const Header = () => {
     });
 
     const defineState = () => {
-        console.log(stateStorageFilter)
         setFilter(stateStorageFilter)
     }
 

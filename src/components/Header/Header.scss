@@ -238,24 +238,34 @@
     }
 }
 
-@media (max-width: 425px) {
-
-    .header {
-        &__input-filter {
-            position: absolute;
-            top: 60px;
-            left: 150px;
-        }
-    }
-}
 
 @media (max-width: 425px) {
     
     .header {
         &__input-filter {
             position: absolute;
-            top: 50px;
-            left: 100px;
+            top: 49px;
+            left: 283px;
+        }
+    }
+}
+@media (max-width: 414px) {
+    
+    .header {
+        &__input-filter {
+            position: absolute;
+            top: 48px;
+            left: 273px;
+        }
+    }
+}
+@media (max-width: 375px) {
+    
+    .header {
+        &__input-filter {
+            position: absolute;
+            top: 49px;
+            left: 123px;
         }
     }
 }

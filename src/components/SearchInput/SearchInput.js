@@ -23,7 +23,7 @@ const SearchInput = ({sort, filterByParams,filterName, handleInput}) => {
         history.push({ search: params.toString() })
     }, [query, history, sort, filterByParams])
 
-    return <input  className="header__input-filter" type="text" defaultValue={query} onInput={onChange} />
+    return <input  className="header__input-filter" type="text" defaultValue={filterName} onInput={onChange} />
 }
 
 export default SearchInput

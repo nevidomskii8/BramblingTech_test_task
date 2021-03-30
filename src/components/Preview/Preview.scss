@@ -1,120 +1,50 @@
 @import "../../utilities/variables";
 
 
-.cardLeft {
-    transform: scale(0);
+
+
+.fade {
     position: absolute;
     padding: 0;
     margin: 0;
 }
 
-.cardLeft-appear {
-    transform: scale(0);
-}
-.cardLeft-appear-active {
-    transform: scale(0);
-}
-.cardLeft-appear-done {
-    transform: scale(0);
-}
-.cardRight-appear {
-    transform: scale(0);
-}
-.cardRight-appear-active {
-    transform: scale(0);
-}
-.cardRight-appear-done {
-    transform: scale(0);
-}
-
-.cardLeft-enter {
-    transition: transform 350ms ease, opacity 300ms, scale 300ms ease;
-    transform: translateX(-150%) scale(0);
+.fade-enter {
+    transform: translateY(100%) scale(0);
     opacity: 0;
+    transition: transform 350ms ease-in, opacity 300ms, scale 300ms ease-out
 }
 
-.cardLeft-enter-active {
-    transition: transform 350ms ease-in, opacity 300ms, scale 300ms ease-in;
-    transform: translateX(-50%) scale(0);
-    opacity: .7;
-}
-
-.cardLeft-enter-done {
-    transition: transform 350ms ease-in, opacity 300ms, scale 300ms ease-in;
-    transform: translateX(0) scale(1);
-    opacity: 1;
-}
-
-.cardLeft-exit {
-    z-index: 100;
-    transition: transform 350ms ease, opacity 300ms, scale 300ms ease;
-    transform: translateX(0) scale(1);
-    opacity: 1;
-}
-
-.cardLeft-exit-active {
-    z-index: 100;
-    transform: translateX(-50%) scale(0);
+.fade-enter-active {
+    transform: translateY(0) scale(.5);
     opacity: .5;
-    transition: transform 500ms ease-out, opacity scale 450ms ease-in;
 }
-
-.cardLeft-exit-done {
-    z-index: 100;
-    transition: transform 350ms ease-in, opacity 300ms, scale 300ms ease-in;
-    transform: translateX(-150%) scale(0);
-    opacity: 0;
-}
-.cardRight {
-    transform: scale(0);
-    position: absolute;
-    padding: 0;
-    margin: 0;
-}
-
-.cardRight-enter {
-    transition: transform 350ms ease, opacity 300ms, scale 300ms ease;
-    transform: translateX(150%) scale(0);
-    opacity: 0;
-}
-
-.cardRight-enter-active {
-    transform: translateX(50%) scale(0);
-    opacity: .7;
-}
-
-.cardRight-enter-done {
-    transition: transform 350ms ease-in, opacity 300ms, scale 300ms ease-in;
-    transform: translateX(0) scale(1);
+.fade-enter-done {
+    transform: translateY(0) scale(1);
     opacity: 1;
 }
 
-.cardRight-exit {
-    z-index: 100;
-    transition: transform 350ms ease, opacity 300ms, scale 300ms ease;
-    transform: translateX(0) scale(1);
+.fade-exit {
+    transform: translateY(0) scale(1);
     opacity: 1;
 }
 
-.cardRight-exit-active {
-    z-index: 100;
-    transform: translateX(50%) scale(0);
-    opacity: .5;
-    transition: transform 500ms ease-out, opacity scale 450ms ease-in;
+.fade-exit-active {
+    transform: translateX(-150%) scale(.1);
+    opacity: 0;
+    transition: transform 500ms ease-out, opacity 450ms ease-in;
 }
 
-.cardRight-exit-done {
-    z-index: 100;
-    transition: transform 350ms ease-in, opacity 300ms, scale 300ms ease-in;
-    transform: translateX(150%) scale(0);
+.fade-exit-done {
+    transform: translateX(-150%) scale(.1);
     opacity: 0;
 }
-
 
 
 
 .visblie-wraper {
     transition: transform 0.25s ease;
+    // transform: translateX(-2000px);
     &__odd {
         
         &--visible {

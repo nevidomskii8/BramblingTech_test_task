@@ -51,7 +51,7 @@ export const Preview = () => {
                             key={item.id}
                             timeout={500}
                             unmountOnExit
-                            classNames={`${i % 2 === 0 ? 'cardLeft' : 'cardRight'}`}
+                            classNames='fade'
                         >
                             <Item item={item} removeItem={removeItem} />
                         </CSSTransition>

@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from "react-router-dom";
 import { getStateData } from '../../Redux/selector/stateSelector';
-import { removeObject } from '../../Redux/action/stateAction';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { removeObject, sortByAge, sortById, sortByName } from '../../Redux/action/stateAction';
+import { TransitionGroup } from 'react-transition-group';
 import { Item } from './Item';
 import { handleFilter } from '../../helper/handleFilter';
 import './Tabel.scss';
@@ -23,11 +23,12 @@ export const Tabel = () => {
 
 
     useEffect(() => {
+        console.log("change state data")
         let testRegex = filterName ? new RegExp([filterName.toUpperCase()]) : /''/;
         let sortedState = handleFilter({ sortParams, sort }, stateData)
 
         if (checkQueryParams && filterName.length !== 0) {
-            setState(() => [...sortedState.filter(elem => testRegex.test(elem.name.toUpperCase()))])
+            setState(sortedState.filter(elem => testRegex.test(elem.name.toUpperCase())))
         } else {
             setState(sortedState)
         }
@@ -38,29 +39,21 @@ export const Tabel = () => {
         let sortedState = handleFilter({ sortParams, sort }, stateData)
 
         filterName && filterName.length !== 0
-            ? setState(() => [...sortedState.filter(elem => testRegex.test(elem.name.toUpperCase()))])
+            ? setState(sortedState.filter(elem => testRegex.test(elem.name.toUpperCase())))
             : setState(sortedState)
     }, [sort, sortParams, filterName])
 
     const removeItem = id => dispatch(removeObject(id))
 
-    useEffect(() => { console.log(state) }, [])
+
 
     return (
         <div className='section-container'>
             <TransitionGroup>
                 {
-                    state?.map((item, i) => {
+                    state.map((item, i) => {
                         return (
-                            <CSSTransition
-                                key={item.id}
-                                timeout={500}
-                                classNames='fade'
-                                // onEnter={() => console.log('enter(I)')}
-
-                            >
-                                <Item item={item} removeItem={removeItem} />
-                            </CSSTransition>
+                            <Item item={item} key={i} time={i} removeItem={removeItem} />
                         )
                     })
                 }

@@ -25,7 +25,6 @@ export const Header = () => {
     }
 
     useEffect(() => {
-        console.log(stateStorageFilter)
         stateStorageFilter.sort
             ? defineState()
             : setFilter({

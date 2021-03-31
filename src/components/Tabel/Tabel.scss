@@ -10,7 +10,7 @@
 .fade-enter {
     transform: translateY(100%) scale(0);
     opacity: 0;
-    transition: transform 350ms ease-in, opacity 300ms, scale 300ms ease-out
+    transition: transform 350ms ease-in, opacity 380ms ease-in
 }
 
 .fade-enter-active ,

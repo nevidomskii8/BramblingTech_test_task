@@ -46,15 +46,7 @@ export const Preview = () => {
             <TransitionGroup>
                 {
                     state?.map((item, i) => (
-
-                        <CSSTransition
-                            key={item.id}
-                            timeout={500}
-                            unmountOnExit
-                            classNames='fade'
-                        >
-                            <Item item={item} removeItem={removeItem} />
-                        </CSSTransition>
+                            <Item item={item} time={i} removeItem={removeItem} />
                     ))
                 }
             </TransitionGroup>

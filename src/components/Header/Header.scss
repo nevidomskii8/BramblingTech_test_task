@@ -181,11 +181,11 @@
             border: none;
             border-right: solid 1px #000;
             cursor: pointer;
+            transition: transform 0.45s ease, background-color 0.45s ease,  color 0.45s ease;   
             
             &:hover {
-                transition: transform 0.45s ease;   
                 background-color: $hover;
-                
+                color: #000;
                 & center {
                     transform: scale(1.2)
                 };

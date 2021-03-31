@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams} from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import messages from "../../appMessages";
 import { setStorage } from '../../Redux/action/storageAction';
 import { getStateFilter } from '../../Redux/selector/storageSelector';
@@ -14,13 +14,14 @@ export const Header = () => {
     const { push } = useHistory();
     const stateStorageFilter = useSelector(getStateFilter);
     const dispatch = useDispatch();
-    const [filter, setFilter] = useState({ 
+    const [filter, setFilter] = useState({
         filterByParams: null,
-         sort: null, 
-         filterByName: '' 
+        sort: null,
+        filterByName: ''
     });
 
     const defineState = () => {
+
         setFilter(stateStorageFilter)
     }
 
@@ -88,13 +89,13 @@ export const Header = () => {
             </ section>
             <nav className='header__nav'>
                 <div
-                    onClick={() => push('/tabel')}
+                    onClick={() => { push('/tabel'); handleInput('') }}
                     className={`header__link${nav === 'tabel' ? '--active' : ''}`}
                 >
                     <center> <FormattedMessage {...messages.projectTabel} /> </ center>
                 </ div>
                 <div
-                    onClick={() => push('/preview')}
+                    onClick={() => { push('/preview'); handleInput('') }}
                     className={`header__link${nav === 'preview' ? '--active' : ''}`}
                 >
                     <center> <FormattedMessage {...messages.projectPreview} /> </ center>

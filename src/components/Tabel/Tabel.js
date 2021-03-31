@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from "react-router-dom";
 import { getStateData } from '../../Redux/selector/stateSelector';
-import { removeObject, sortByAge, sortById, sortByName } from '../../Redux/action/stateAction';
+import { removeObject} from '../../Redux/action/stateAction';
 import { TransitionGroup } from 'react-transition-group';
 import { Item } from './Item';
 import { handleFilter } from '../../helper/handleFilter';
@@ -23,7 +23,6 @@ export const Tabel = () => {
 
 
     useEffect(() => {
-        console.log("change state data")
         let testRegex = filterName ? new RegExp([filterName.toUpperCase()]) : /''/;
         let sortedState = handleFilter({ sortParams, sort }, stateData)
 

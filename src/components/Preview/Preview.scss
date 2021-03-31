@@ -1,8 +1,5 @@
 @import "../../utilities/variables";
 
-
-
-
 .fade {
     position: absolute;
     padding: 0;
@@ -44,7 +41,6 @@
 
 .visblie-wraper {
     transition: transform 0.25s ease;
-    // transform: translateX(-2000px);
     &__odd {
         
         &--visible {

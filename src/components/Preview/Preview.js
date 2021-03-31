@@ -2,18 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from "react-router-dom";
 import { getStateData } from '../../Redux/selector/stateSelector';
-import VisibilitySensor from 'react-visibility-sensor';
 import { removeObject } from '../../Redux/action/stateAction';
 import './Preview.scss';
 import { handleFilter } from '../../helper/handleFilter';
 import { Item } from './Item';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
 
 
 export const Preview = () => {
     const stateData = useSelector(getStateData);
     const dispatch = useDispatch();
-    const [visible, setVisibile] = useState(false);
     const [state, setState] = useState([]);
 
     const search = useLocation().search;
@@ -46,7 +44,7 @@ export const Preview = () => {
             <TransitionGroup>
                 {
                     state?.map((item, i) => (
-                            <Item item={item} time={i} removeItem={removeItem} />
+                            <Item key={i} item={item} time={i} removeItem={removeItem} />
                     ))
                 }
             </TransitionGroup>

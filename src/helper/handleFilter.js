@@ -82,19 +82,19 @@ export const handleFilter = (param, state) => {
     switch (sortParams) {
         case 'id':
             sort === 'discending'
-                ? filterteredState = filterteredState.sort(idAscending)
-                : filterteredState = filterteredState.sort(idDiscending)
+                ? filterteredState = filterteredState.slice().sort(idAscending)
+                : filterteredState = filterteredState.slice().sort(idDiscending)
 
             break;
         case 'name':
             sort === 'discending'
-                ? filterteredState = filterteredState.sort(nameAscending)
-                : filterteredState = filterteredState.sort(nameDiscending)
+                ? filterteredState = filterteredState.slice().sort(nameAscending)
+                : filterteredState = filterteredState.slice().sort(nameDiscending)
             break;
         case 'age':
             sort === 'discending'
-                ? filterteredState = filterteredState.sort(ageAscending)
-                : filterteredState = filterteredState.sort(ageDiscending)
+                ? filterteredState = filterteredState.slice().sort(ageAscending)
+                : filterteredState = filterteredState.slice().sort(ageDiscending)
             break;
         default: return filterteredState
     }

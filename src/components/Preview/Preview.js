@@ -44,7 +44,7 @@ export const Preview = () => {
             <TransitionGroup>
                 {
                     state?.map((item, i) => (
-                            <Item key={i} item={item} time={i} removeItem={removeItem} />
+                            <Item key={Math.random()} item={item} removeItem={removeItem} />
                     ))
                 }
             </TransitionGroup>

@@ -17,7 +17,6 @@ const SearchInput = ({sort, filterByParams,filterName, handleInput}) => {
 
     useEffect(() => {
         setQuery('')
-        console.log('naaav')
     },[nav])
 
     

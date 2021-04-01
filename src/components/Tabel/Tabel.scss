@@ -1,6 +1,5 @@
 @import "../../utilities/variables";
 
-
 .fade {
     position: absolute;
     padding: 0;
@@ -10,10 +9,10 @@
 .fade-enter {
     transform: translateY(100%) scale(0);
     opacity: 0;
-    transition: transform 350ms ease-in, opacity 380ms ease-in
+    transition: transform 350ms ease-in, opacity 380ms ease-in;
 }
 
-.fade-enter-active ,
+.fade-enter-active,
 .fade-enter-done {
     transform: translateY(0) scale(1);
     opacity: 1;
@@ -25,13 +24,13 @@
 }
 
 .fade-exit-active {
-    transform: translateX(-150%) scale(.1);
+    transform: translateX(-150%) scale(0.1);
     opacity: 0;
     transition: transform 500ms ease-out, opacity 450ms ease-in;
 }
 
 .fade-exit-done {
-    transform: translateX(-150%) scale(.1);
+    transform: translateX(-150%) scale(0.1);
     opacity: 0;
 }
 
@@ -51,7 +50,15 @@
     margin-bottom: 1%;
     background-color: $background;
     color: $color;
-
+    transition: transform 500ms ease-out, opacity 450ms ease-in;
+    transform: scale(0) translateX(-150%);
+    &__show {
+        transition: transform 500ms ease-out, opacity 450ms ease-in , display 300ms ease-in;
+        transform: scale(1) translateX(0);
+    }
+    &__hide {
+        transition: transform 500ms ease-out, opacity 450ms ease-in;
+    }
     &__delete {
         position: absolute;
         left: -10px;

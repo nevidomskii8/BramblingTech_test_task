@@ -1,59 +1,19 @@
 @import "../../utilities/variables";
 
-.fade {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-}
-
-.fade-enter {
-    transform: translateY(100%) scale(0);
-    opacity: 0;
-    transition: transform 350ms ease-in, opacity 300ms, scale 300ms ease-out
-}
-
-.fade-enter-active {
-    transform: translateY(0) scale(.5);
-    opacity: .5;
-}
-.fade-enter-done {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-}
-
-.fade-exit {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-}
-
-.fade-exit-active {
-    transform: translateX(-150%) scale(.1);
-    opacity: 0;
-    transition: transform 500ms ease-out, opacity 450ms ease-in;
-}
-
-.fade-exit-done {
-    transform: translateX(-150%) scale(.1);
-    opacity: 0;
-}
-
-
 
 .visblie-wraper {
     transition: transform 0.25s ease;
     &__odd {
-        
         &--visible {
             transform: translateX(-2000px);
         }
-        
+
         &--unvisible {
             transform: translateX(0px);
         }
     }
 
     &__even {
-        
         &--visible {
             transform: translateX(-2000px);
         }
@@ -65,7 +25,6 @@
 }
 
 .card-container {
-    
     & > div {
         width: 100%;
         display: flex;
@@ -87,22 +46,51 @@
     box-shadow: 2px 3px 4px 3px rgba(0, 0, 0, 0.3);
     background-color: $background;
     color: $color;
-    
+    transition: transform 500ms ease-out, opacity 450ms ease-in;
+    transform: scale(0) translateX(-150%);
+    &__show {
+        position: relative;
+        display: flex;
+        width: 49%;
+        height: 250px;
+        border: solid 1px #000;
+        box-shadow: 2px 3px 4px 3px rgba(0, 0, 0, 0.3);
+        background-color: $background;
+        color: $color;
+        transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
+        transform: scale(1) translateX(0);
+
+        &--video {
+            position: relative;
+            display: flex;
+            width: 49%;
+            height: 250px;
+            border: solid 1px #000;
+            box-shadow: 2px 3px 4px 3px rgba(0, 0, 0, 0.3);
+            background-color: $background;
+            color: $color;
+            transition: transform 500ms ease-out, opacity 450ms ease-in;
+            transform: scale(0) translateX(-250%);
+
+            &__show {
+                display: flex;
+                width: 100%;
+                height: auto;
+                border: solid 1px #000;
+                margin-left: 0 !important;
+                box-shadow: 2px 8px 6px 3px rgba(0, 0, 0, 0.3);
+                background-color: $background;
+                color: $color;
+                transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
+                transform: scale(1) translateX(0);
+            }
+        }
+    }
+
     &__delete {
         position: absolute;
         width: 20px;
         height: 20px;
-    }
-
-    &--video {
-        display: flex;
-        width: 100%;
-        height: auto;
-        border: solid 1px #000;
-        margin-left: 0 !important;
-        box-shadow: 2px 8px 6px 3px rgba(0, 0, 0, 0.3);
-        background-color: $background;
-        color: $color;
     }
 
     &__info {
@@ -111,7 +99,7 @@
         width: 100%;
         justify-content: space-around;
         padding: 20px;
-        
+
         &--head {
             display: flex;
             width: 100%;
@@ -136,7 +124,7 @@
                 height: 180px;
             }
         }
-        
+
         &--medium {
             display: flex;
             flex-direction: column;
@@ -151,7 +139,6 @@
 }
 
 @media (max-width: 950px) {
-
     .card {
         &__video {
             width: 440px;
@@ -161,7 +148,6 @@
 }
 
 @media (max-width: 900px) {
-  
     .card {
         &__video {
             width: 420px;
@@ -171,7 +157,6 @@
 }
 
 @media (max-width: 850px) {
-
     .card {
         &__video {
             width: 400px;
@@ -181,7 +166,6 @@
 }
 
 @media (max-width: 750px) {
-
     .card {
         &__video {
             width: 380px;
@@ -191,10 +175,9 @@
 }
 
 @media (max-width: 425px) {
-
     .card {
         width: 100%;
-        
+
         &--video {
             flex-direction: column;
         }
@@ -207,14 +190,13 @@
 }
 
 @media (max-width: 375px) {
-
     .card {
         width: 100%;
 
         &--video {
             flex-direction: column;
         }
-        
+
         &__video {
             width: 335px;
             height: 190px;

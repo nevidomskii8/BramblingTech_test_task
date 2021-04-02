@@ -29,7 +29,7 @@ export const VisibilitySensorImage = (props) => {
             active={disActive}
         >
             <video
-                className="card__video"
+                // className="card__video"
                 width="470" height="250"
                 controls ref={videoRef}
                 muted="muted"

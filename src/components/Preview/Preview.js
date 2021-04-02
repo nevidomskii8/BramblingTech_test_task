@@ -6,14 +6,12 @@ import { removeObject } from '../../Redux/action/stateAction';
 import './Preview.scss';
 import { handleFilter } from '../../helper/handleFilter';
 import { Item } from './Item';
-import { TransitionGroup } from 'react-transition-group';
 
 
 export const Preview = () => {
     const stateData = useSelector(getStateData);
     const dispatch = useDispatch();
     const [state, setState] = useState([]);
-
     const search = useLocation().search;
     const sortParams = new URLSearchParams(search).get('filter-by-params');
     const filterName = new URLSearchParams(search).get('filter');
@@ -41,13 +39,11 @@ export const Preview = () => {
     const removeItem = (id) => dispatch(removeObject(id))
     return (
         <div className='card-container'>
-            <TransitionGroup>
                 {
                     state?.map((item, i) => (
                             <Item key={Math.random()} item={item} removeItem={removeItem} />
                     ))
                 }
-            </TransitionGroup>
         </div>
     )
 };

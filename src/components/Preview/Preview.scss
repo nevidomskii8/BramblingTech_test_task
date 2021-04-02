@@ -1,6 +1,5 @@
 @import "../../utilities/variables";
 
-
 .visblie-wraper {
     transition: transform 0.25s ease;
     &__odd {
@@ -25,12 +24,10 @@
 }
 
 .card-container {
-    & > div {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     & section {
         margin-bottom: 1%;
@@ -48,52 +45,54 @@
     color: $color;
     transition: transform 500ms ease-out, opacity 450ms ease-in;
     transform: scale(0) translateX(-150%);
-    &__show {
-        position: relative;
-        display: flex;
-        width: 49%;
-        height: 250px;
-        border: solid 1px #000;
-        box-shadow: 2px 3px 4px 3px rgba(0, 0, 0, 0.3);
-        background-color: $background;
-        color: $color;
-        transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
-        transform: scale(1) translateX(0);
 
-        &--video {
-            position: relative;
+    &__unvideo {
+        transition: transform 500ms ease-out, opacity 450ms ease-in, display 350ms ease-in;
+        transform: scale(0) translateX(-150%);
+        background-color: $background;
+        width: 49%;
+
+        &--show {
             display: flex;
             width: 49%;
-            height: 250px;
+            height: auto;
             border: solid 1px #000;
-            box-shadow: 2px 3px 4px 3px rgba(0, 0, 0, 0.3);
+            margin-left: 0 !important;
+            box-shadow: 2px 8px 6px 3px rgba(0, 0, 0, 0.3);
             background-color: $background;
             color: $color;
-            transition: transform 500ms ease-out, opacity 450ms ease-in;
-            transform: scale(0) translateX(-250%);
+            transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
+            transform: scale(1) translateX(0);
+        }
+    }
+    &__video {
+        background-color: $background;
+        transition: transform 500ms ease-out, opacity 450ms ease-in;
+        transform: scale(0) translateX(150%);
 
-            &__show {
-                display: flex;
-                width: 100%;
-                height: auto;
-                border: solid 1px #000;
-                margin-left: 0 !important;
-                box-shadow: 2px 8px 6px 3px rgba(0, 0, 0, 0.3);
-                background-color: $background;
-                color: $color;
-                transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
-                transform: scale(1) translateX(0);
-            }
+        &--show {
+            display: flex;
+            width: 100%;
+            height: auto;
+            border: solid 1px #000;
+            margin-left: 0 !important;
+            box-shadow: 2px 8px 6px 3px rgba(0, 0, 0, 0.3);
+            background-color: $background;
+            color: $color;
+            transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
+            transform: scale(1) translateX(0);
         }
     }
 
     &__delete {
         position: absolute;
+        z-index: 100;
         width: 20px;
         height: 20px;
     }
 
     &__info {
+        position: relative;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -118,11 +117,6 @@
                 background-color: blueviolet;
                 margin-right: 20px;
             }
-
-            & video {
-                width: 240px;
-                height: 180px;
-            }
         }
 
         &--medium {
@@ -133,7 +127,7 @@
         }
     }
 
-    --video {
+    &__video {
         width: 100%;
     }
 }
@@ -141,7 +135,7 @@
 @media (max-width: 950px) {
     .card {
         &__video {
-            width: 440px;
+            width: 100%;
             height: 240px;
         }
     }
@@ -150,7 +144,6 @@
 @media (max-width: 900px) {
     .card {
         &__video {
-            width: 420px;
             height: 220px;
         }
     }
@@ -159,7 +152,6 @@
 @media (max-width: 850px) {
     .card {
         &__video {
-            width: 400px;
             height: 200px;
         }
     }
@@ -168,7 +160,6 @@
 @media (max-width: 750px) {
     .card {
         &__video {
-            width: 380px;
             height: 190px;
         }
     }
@@ -177,14 +168,16 @@
 @media (max-width: 425px) {
     .card {
         width: 100%;
-
-        &--video {
-            flex-direction: column;
+        height: auto;
+        &__unvideo--show {
+            width: 100%;
         }
-
-        &__video {
-            width: 380px;
-            height: 220px;
+        &__video--show {
+            flex-direction: column;
+            width: 100%;
+            & video {
+                width: 380px;
+            }
         }
     }
 }
@@ -193,13 +186,12 @@
     .card {
         width: 100%;
 
-        &--video {
+        &__video--show {
             flex-direction: column;
-        }
-
-        &__video {
-            width: 335px;
-            height: 190px;
+            width: 100%;
+            & video {
+                width: 336px;
+            }
         }
     }
 }
@@ -208,13 +200,12 @@
     .card {
         width: 100%;
 
-        &--video {
+        &__video--show {
             flex-direction: column;
-        }
-
-        &__video {
-            width: 285px;
-            height: 180px;
+            width: 100%;
+            & video {
+                width: 286px;
+            }
         }
     }
 }

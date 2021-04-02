@@ -31,7 +31,6 @@ export const Tabel = () => {
         if (checkQueryParams && filterName.length !== 0) {
             setState([...sortedState.slice().filter(elem => testRegex.test(elem.name.toUpperCase()))])
         } else {
-            console.log('else')
             setState(stateData)
         }
     }, [stateData])

@@ -14,7 +14,7 @@ export const Item = ({ item, time, removeItem }) => {
     useEffect(() => {
         timeRef.current = setTimeout(() => {
             setStart(true)
-        }, time * 100)
+        }, time * 150)
         return () => {
             clearTimeout(timeRef.current); clearTimeout(timeReftoState.current)
         }

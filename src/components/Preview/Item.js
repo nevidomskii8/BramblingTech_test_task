@@ -3,9 +3,6 @@ import { ReactComponent as StarLot } from '../../assets/svg/star-lot.svg';
 import { ReactComponent as StarEmpty } from '../../assets/svg/star-empty.svg';
 import { ReactComponent as Close } from '../../assets/svg/btnClose.svg';
 import { VisibilitySensorImage } from '../VisibilyteSensorVideo/VisibilitySensorVidoe';
-import { CSSTransition } from 'react-transition-group';
-import { current } from '@reduxjs/toolkit';
-
 
 export const Item = ({ item, time, removeItem }) => {
     const [show, setShow] = useState(false)
@@ -16,7 +13,7 @@ export const Item = ({ item, time, removeItem }) => {
     useEffect(() => {
         timeRef.current = setTimeout(() => {
             setShow(true)
-        }, time * 400)
+        }, time * 150)
         return () => clearTimeout(timeRef.current)
     }, [])
 

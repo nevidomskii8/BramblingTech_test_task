@@ -9,7 +9,4 @@ export const fetchState = createAsyncThunk('pictures/getState', async () => {
     return data;
 })
 
-export const sortById = createAction('SORT_BY_ID');
-export const sortByName = createAction('SORT_BY_NAME');
-export const sortByAge = createAction('SORT_BY_AGE');
 export const removeObject = createAction('REMOVE_OBJECT');

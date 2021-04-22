@@ -31,7 +31,6 @@ export const Tabel = () => {
         if (checkQueryParams && filterName.length !== 0) {
             setState([...sortedState.slice().filter(elem => testRegex.test(elem.name.toUpperCase()))])
         } else {
-            console.log('else')
             setState(stateData)
         }
     }, [stateData])
@@ -47,6 +46,7 @@ export const Tabel = () => {
 
     const removeItem = id => dispatch(removeObject(id))
 
+
     return (
         <div className='section-container'>
             {
@@ -55,7 +55,7 @@ export const Tabel = () => {
                         <Item
                             item={item}
                             refcurrent={ref.current}
-                            key={Math.random()}
+                            key={item.id}
                             time={i}
                             removeItem={removeItem}
                             dependents={sortParams, filterName, sort}

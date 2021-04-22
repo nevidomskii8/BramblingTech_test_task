@@ -41,7 +41,7 @@ export const Preview = () => {
         <div className='card-container'>
                 {
                     state?.map((item, i) => (
-                            <Item key={Math.random()} item={item} removeItem={removeItem} />
+                            <Item key={item.id} item={item} removeItem={removeItem} />
                     ))
                 }
         </div>

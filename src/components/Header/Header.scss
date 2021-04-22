@@ -1,5 +1,28 @@
 @import "../../utilities/variables";
 
+@mixin beforeButton {
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 0px;
+    height: 3px;
+    background-color: $before-color;
+    transition: transform 0.25s ease;
+}
+
+@mixin beforeInButton {
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 0px;
+    height: 3px;
+    background-color: $before-color;
+    transition: transform 0.25s ease;
+}
+
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -11,15 +34,8 @@
 
         &::before {
             z-index: 100;
-            content: "";
-            position: absolute;
-            left: 5px;
-            right: 5px;
-            bottom: 0px;
-            height: 3px;
-            background-color: $before-color;
+            @include beforeButton;
             transform: scaleX(0);
-            transition: transform 0.25s ease;
         }
 
         &--active {
@@ -28,15 +44,8 @@
             color: $color;
 
             &::before {
-                content: "";
-                position: absolute;
-                left: 5px;
-                right: 5px;
-                bottom: 0px;
-                height: 3px;
-                background-color: $before-color;
+                @include beforeButton;
                 transform: scaleX(1) ;
-                transition: transform 0.25s ease;
             }
         }
         
@@ -55,15 +64,8 @@
         
         &::before {
             z-index: 100;
-            content: "";
-            position: absolute;
-            left: 5px;
-            right: 5px;
-            bottom: 0px;
-            height: 3px;
-            background-color: $before-color;
+            @include beforeInButton;
             transform: scaleX(0);
-            transition: transform 0.25s ease;
         }
         
         &--active {
@@ -72,15 +74,8 @@
             color: $color;
 
             &::before {
-                content: "";
-                position: absolute;
-                left: 5px;
-                right: 5px;
-                bottom: 0px;
-                height: 3px;
-                background-color: $before-color;
+                @include beforeInButton;
                 transform: scaleX(1);
-                transition: transform 0.25s ease;
             }
         }
         

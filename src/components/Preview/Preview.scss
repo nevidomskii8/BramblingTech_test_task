@@ -1,5 +1,17 @@
 @import "../../utilities/variables";
 
+@mixin cardVideo {
+    display: flex;
+    height: auto;
+    border: solid 1px #000;
+    margin-left: 0 !important;
+    box-shadow: $boxShadow;
+    background-color: $background;
+    color: $color;
+    transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
+    transform: scale(1) translateX(0);
+}
+
 .visblie-wraper {
     transition: transform 0.25s ease;
     &__odd {
@@ -53,34 +65,18 @@
         width: 49%;
 
         &--show {
-            display: flex;
             width: 49%;
-            height: auto;
-            border: solid 1px #000;
-            margin-left: 0 !important;
-            box-shadow: 2px 8px 6px 3px rgba(0, 0, 0, 0.3);
-            background-color: $background;
-            color: $color;
-            transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
-            transform: scale(1) translateX(0);
+            @include cardVideo;
         }
     }
     &__video {
         background-color: $background;
         transition: transform 500ms ease-out, opacity 450ms ease-in;
         transform: scale(0) translateX(150%);
-
+        
         &--show {
-            display: flex;
             width: 100%;
-            height: auto;
-            border: solid 1px #000;
-            margin-left: 0 !important;
-            box-shadow: 2px 8px 6px 3px rgba(0, 0, 0, 0.3);
-            background-color: $background;
-            color: $color;
-            transition: transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;
-            transform: scale(1) translateX(0);
+            @include cardVideo;
         }
     }
 

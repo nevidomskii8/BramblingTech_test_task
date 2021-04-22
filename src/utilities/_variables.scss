@@ -1,6 +1,17 @@
-$hover: rgba($color: #000000, $alpha: 0.2);
-$on-active: rgba($color: #000000, $alpha: 0.3);
-$before-color:  #f7810d;
-$active: rgba($color: #000000, $alpha: 0.5);
-$background: #3F3E3F;
-$color: #F1F6A1;
+$hover: rgba(
+    $color: #000000,
+    $alpha: 0.2,
+);
+$on-active: rgba(
+    $color: #000000,
+    $alpha: 0.3,
+);
+$before-color: #f7810d;
+$active: rgba(
+    $color: #000000,
+    $alpha: 0.5,
+);
+$background: #3f3e3f;
+$color: #f1f6a1;
+$boxShadow: 2px 8px 6px 3px rgba(0, 0, 0, 0.3);
+$transforvCardV:  transform 500ms ease-out, opacity 450ms ease-in, display 300ms ease-in;

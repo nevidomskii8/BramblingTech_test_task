@@ -46,59 +46,59 @@ export const Header = () => {
     return (
         <header className='header'>
             <SearchInput
-                handleInput={handleInput}
-                filterName={filter.filterByName}
-                sort={filter.sort}
-                filterByParams={filter.filterByParams}
+                handleInput={ handleInput }
+                filterName={ filter.filterByName }
+                sort={ filter.sort }
+                filterByParams={ filter.filterByParams }
             />
             <section className='header__filter'>
                 <div className='header__filter--params'>
                     <div
-                        onClick={() => setFilter({ ...filter, filterByParams: 'id' })}
-                        className={`header__params${filter.filterByParams === 'id' ? '--active' : ''}`}
+                        onClick={ () => setFilter({ ...filter, filterByParams: 'id' }) }
+                        className={ `header__params${filter.filterByParams === 'id' ? '--active' : ''}` }
                     >
-                        <center> <FormattedMessage {...messages.projectFilterId} /></ center>
+                        <center> <FormattedMessage { ...messages.projectFilterId } /></ center>
                     </ div>
                     <div
-                        onClick={() => setFilter({ ...filter, filterByParams: 'name' })}
-                        className={`header__params${filter.filterByParams === 'name' ? '--active' : ''}`}
+                        onClick={ () => setFilter({ ...filter, filterByParams: 'name' }) }
+                        className={ `header__params${filter.filterByParams === 'name' ? '--active' : ''}` }
                     >
-                        <center> <FormattedMessage {...messages.projectFilterName} /> </ center>
+                        <center> <FormattedMessage { ...messages.projectFilterName } /> </ center>
                     </ div>
                     <div
-                        onClick={() => setFilter({ ...filter, filterByParams: 'age' })}
-                        className={`header__params${filter.filterByParams === 'age' ? '--active' : ''}`}
+                        onClick={ () => setFilter({ ...filter, filterByParams: 'age' }) }
+                        className={ `header__params${filter.filterByParams === 'age' ? '--active' : ''}` }
                     >
-                        <center> <FormattedMessage {...messages.projectFilterAge} /> </ center>
+                        <center> <FormattedMessage { ...messages.projectFilterAge } /> </ center>
                     </ div>
                 </ div>
                 <div className='header__filter--cending'>
                     <div
-                        className={`header__cending${filter.sort === 'ascending' ? '--active' : ''}`}
-                        onClick={() => setFilter({ ...filter, sort: 'ascending' })}
+                        className={ `header__cending${filter.sort === 'ascending' ? '--active' : ''}` }
+                        onClick={ () => setFilter({ ...filter, sort: 'ascending' }) }
                     >
-                        <center> <FormattedMessage {...messages.projectFilterAscending} /> </ center>
+                        <center> <FormattedMessage { ...messages.projectFilterAscending } /> </ center>
                     </ div>
                     <div
-                        onClick={() => setFilter({ ...filter, sort: 'discending' })}
-                        className={`header__cending${filter.sort === 'discending' ? '--active' : ''}`}
+                        onClick={ () => setFilter({ ...filter, sort: 'discending' }) }
+                        className={ `header__cending${filter.sort === 'discending' ? '--active' : ''}` }
                     >
-                        <center> <FormattedMessage {...messages.projectFilterDiscending} /> </ center>
+                        <center> <FormattedMessage { ...messages.projectFilterDiscending } /> </ center>
                     </ div>
                 </ div>
             </ section>
             <nav className='header__nav'>
                 <div
-                    onClick={() => { push('/tabel'); handleInput('') }}
-                    className={`header__link${nav === 'tabel' ? '--active' : ''}`}
+                    onClick={ () => { push('/tabel'); handleInput('') } }
+                    className={ `header__link${nav === 'tabel' ? '--active' : ''}` }
                 >
-                    <center> <FormattedMessage {...messages.projectTabel} /> </ center>
+                    <center> <FormattedMessage { ...messages.projectTabel } /> </ center>
                 </ div>
                 <div
-                    onClick={() => { push('/preview'); handleInput('') }}
-                    className={`header__link${nav === 'preview' ? '--active' : ''}`}
+                    onClick={ () => { push('/preview'); handleInput('') } }
+                    className={ `header__link${nav === 'preview' ? '--active' : ''}` }
                 >
-                    <center> <FormattedMessage {...messages.projectPreview} /> </ center>
+                    <center> <FormattedMessage { ...messages.projectPreview } /> </ center>
                 </ div>
             </ nav>
         </ header>
